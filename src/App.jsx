@@ -1,7 +1,8 @@
 import React from 'react'
-import defaltDataset from './dataset'
 import './assets/styles/style.css'
 import { AnswersList, Chats } from './components/index'
+import { FormDialog } from './components/Forms/index'
+import { db } from './firebase/index'
 
 class App extends React.Component {
   constructor(props) {
@@ -10,10 +11,20 @@ class App extends React.Component {
       answers: [],
       chats: [],
       currentId: 'init',
-      dataset: defaltDataset,
+      dataset: {},
       open: false,
     }
     this.selectAnswer = this.selectAnswer.bind(this)
+    this.handleClickOpen = this.handleClickOpen.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+  }
+
+  handleClickOpen = () => {
+    this.setState({ open: true })
+  }
+
+  handleClose = () => {
+    this.setState({ open: false })
   }
 
   displayNextQuestion = (nextQuestionId) => {
@@ -44,6 +55,10 @@ class App extends React.Component {
         a.click()
         break
 
+      case nextQuestionId === 'contact':
+        this.handleClickOpen()
+        break
+
       default:
         const chat = {
           text: selectedAnswer,
@@ -60,8 +75,21 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const initAnswer = ''
-    this.selectAnswer(initAnswer, this.state.currentId)
+    ;(async () => {
+      const { dataset } = this.state
+      await db
+        .collection('questions')
+        .get()
+        .then((snapShots) => {
+          snapShots.forEach((doc) => {
+            const { id } = doc
+            const data = doc.data()
+            dataset[id] = data
+          })
+        })
+      const initAnswer = ''
+      this.selectAnswer(initAnswer, this.state.currentId)
+    })()
   }
 
   componentDidUpdate() {
@@ -72,13 +100,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { answers, chats } = this.state
+    const { answers, chats, open } = this.state
 
     return (
       <section className="c-section">
         <div className="c-box">
           <Chats chats={chats} />
           <AnswersList answers={answers} select={this.selectAnswer} />
+          <FormDialog open={open} handleClose={this.handleClose} />
         </div>
       </section>
     )
