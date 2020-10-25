@@ -1,25 +1,33 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import * as React from 'react'
 import './assets/styles/style.css'
-import { AnswersList, Chats } from './components/index'
-import { FormDialog } from './components/Forms/index'
-import { db } from './firebase/index'
+import AnswersList from './components/AnswersList'
+import { AnswerProps } from './components/Answer'
+import { ChatProps } from './components/Chat'
+import Chats from './components/Chats'
+import FormDialog from './components/FormDialog'
+import { defaultDataset as db } from './dataset'
+
+interface DataSet {
+  answers: AnswerProps[]
+  question: string
+}
 
 const App = () => {
-  const [answers, setAnswers] = useState([])
-  const [chats, setChats] = useState([])
-  const [currentId, setCurrentId] = useState('init')
-  const [dataset, setDataset] = useState({})
-  const [open, setOpen] = useState(false)
+  const [answers, setAnswers] = React.useState<AnswerProps[]>([])
+  const [chats, setChats] = React.useState<ChatProps[]>([])
+  const [currentId, setCurrentId] = React.useState<any>('init')
+  const [dataset, setDataset] = React.useState<any>(db)
+  const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = () => {
     setOpen(true)
   }
 
-  const handleClose = useCallback(() => {
+  const handleClose = React.useCallback(() => {
     setOpen(false)
   }, [])
 
-  const displayNextQuestion = (nextQuestionId, nextDataset) => {
+  const displayNextQuestion = (nextQuestionId: any, nextDataset: DataSet) => {
     addChats({
       text: nextDataset.question,
       type: 'question',
@@ -29,7 +37,7 @@ const App = () => {
     setCurrentId(nextQuestionId)
   }
 
-  const selectAnswer = (selectedAnswer, nextQuestionId) => {
+  const selectAnswer = (selectedAnswer: string, nextQuestionId: any) => {
     switch (true) {
       case /^https:*/.test(nextQuestionId):
         const a = document.createElement('a')
@@ -56,30 +64,15 @@ const App = () => {
     }
   }
 
-  const addChats = (chat) => {
+  const addChats = (chat: ChatProps) => {
     setChats((prevChats) => [...prevChats, chat])
   }
 
-  useEffect(() => {
-    ;(async () => {
-      const initDataset = {}
-      await db
-        .collection('questions')
-        .get()
-        .then((snapShots) => {
-          snapShots.forEach((doc) => {
-            const { id } = doc
-            const data = doc.data()
-            initDataset[id] = data
-          })
-        })
-
-      setDataset(initDataset)
-      displayNextQuestion(currentId, initDataset[currentId])
-    })()
+  React.useEffect(() => {
+    displayNextQuestion(currentId, dataset[currentId])
   }, [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     const scrollArea = document.getElementById('scroll-area')
     if (scrollArea) {
       scrollArea.scrollTop = scrollArea.scrollHeight

@@ -1,7 +1,12 @@
-import React from 'react'
-import { Answer } from './index'
+import * as React from 'react'
+import Answer, { AnswerProps } from './Answer'
 
-const AnswersList = ({ answers, select }) => {
+interface AnsweListProps {
+  answers: AnswerProps[]
+  select: any
+}
+
+const AnswersList = ({ answers, select }: AnsweListProps) => {
   return (
     <div
       className="c-grid__answer"
@@ -12,7 +17,7 @@ const AnswersList = ({ answers, select }) => {
         height: '192px',
       }}
     >
-      {answers.map(({ content, nextId }, index) => (
+      {answers.map(({ content, nextId }: AnswerProps, index: number) => (
         <Answer
           content={content}
           select={select}

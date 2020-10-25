@@ -1,18 +1,24 @@
-import React, { useState, useCallback } from 'react'
+import * as React from 'react'
 import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import TextInput from './TextInput'
+import WEBHOOKURL from '../webhook'
 
-const FormDialog = ({ open, handleClose }) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [description, setDescription] = useState('')
+interface FormDialogProps {
+  open: boolean
+  handleClose: () => void
+}
 
-  const validateEmailFormat = (email) => {
-    const regexp = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+const FormDialog = ({ open, handleClose }: FormDialogProps) => {
+  const [name, setName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const [description, setDescription] = React.useState('')
+
+  const validateEmailFormat = (email: string) => {
+    const regexp = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     return regexp.test(email)
   }
 
@@ -41,10 +47,7 @@ const FormDialog = ({ open, handleClose }) => {
           description,
       }
 
-      const url =
-        'https://hooks.slack.com/services/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'
-
-      fetch(url, {
+      fetch(WEBHOOKURL, {
         method: 'POST',
         body: JSON.stringify(payload),
       }).then(() => {
@@ -57,17 +60,26 @@ const FormDialog = ({ open, handleClose }) => {
     }
   }
 
-  const inputName = useCallback((event) => {
-    setName(event.target.value)
-  })
+  const inputName = React.useCallback(
+    (event) => {
+      setName(event.target.value)
+    },
+    [setName]
+  )
 
-  const inputEmail = useCallback((event) => {
-    setEmail(event.target.value)
-  })
+  const inputEmail = React.useCallback(
+    (event) => {
+      setEmail(event.target.value)
+    },
+    [setEmail]
+  )
 
-  const inputDescription = useCallback((event) => {
-    setDescription(event.target.value)
-  })
+  const inputDescription = React.useCallback(
+    (event) => {
+      setDescription(event.target.value)
+    },
+    [setDescription]
+  )
 
   return (
     <Dialog

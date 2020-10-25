@@ -1,6 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+
+export interface AnswerProps {
+  content: string
+  select: any
+  nextId: string
+}
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -17,7 +23,7 @@ const useStyles = makeStyles(() =>
   })
 )
 
-const Answer = ({ content, select, nextId }) => {
+const Answer = ({ content, select, nextId }: AnswerProps) => {
   const classes = useStyles()
 
   return (
