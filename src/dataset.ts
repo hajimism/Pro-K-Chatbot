@@ -1,5 +1,5 @@
-const lineUrl = 'lineUrl'
-const formUrl = 'formUrl'
+const lineUrl = 'http://lin.ee/tfKv3EW'
+const formUrl = 'https://forms.gle/DRNAjj2rjZhJd3ok9'
 
 export const defaultDataset = {
   init: {
