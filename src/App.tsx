@@ -39,7 +39,7 @@ const App = () => {
 
   const selectAnswer = (selectedAnswer: string, nextQuestionId: any) => {
     switch (true) {
-      case /^https:*/.test(nextQuestionId):
+      case /^http*/.test(nextQuestionId):
         const a = document.createElement('a')
         a.href = nextQuestionId
         a.target = '_blank'

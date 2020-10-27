@@ -133,31 +133,47 @@ export const defaultDataset = {
 
   economics: {
     answers: [
+      {
+        content: '履修に関するnoteを読む',
+        nextId: 'https://note.com/yahhoh_digital/n/nff6f18f7c534',
+      },
       { content: '経済学部のPro-Kerと連絡を取りたい！', nextId: 'contact' },
       { content: '最初の質問に戻る', nextId: 'init' },
     ],
-    question: '経済学部ですね。こちらのnoteをお読みください！',
+    question: '経済学部ですね。どうされますか？',
   },
   commerce: {
     answers: [
-      { content: '商学部のPro-Kerと連絡を取りたい!', nextId: 'contact' },
+      { content: '履修に関するnoteを読む', nextId: 'contact' },
+      {
+        content: '商学部のPro-Kerと連絡を取りたい!',
+        nextId: 'https://note.com/yahhoh_digital/n/n5e4b1d415d0e',
+      },
       { content: '最初の質問に戻る', nextId: 'init' },
     ],
-    question: '商学部ですね。こちらのnoteをお読みください！',
+    question: '商学部ですね。どうされますか？',
   },
   law: {
     answers: [
+      {
+        content: '履修に関するnoteを読む',
+        nextId: 'https://note.com/yahhoh_digital/n/na43d5937c7e0',
+      },
       { content: '法学部のPro-Kerと連絡を取りたい！', nextId: 'contact' },
       { content: '最初の質問に戻る', nextId: 'init' },
     ],
-    question: '法学部ですね。こちらのnoteをお読みください！',
+    question: '法学部ですね。どうされますか？',
   },
   sociology: {
     answers: [
+      {
+        content: '履修に関するnoteを読む',
+        nextId: 'https://note.com/yahhoh_digital/n/n2981c675d1ce',
+      },
       { content: '社会学部のPro-Kerと連絡を取りたい！', nextId: 'contact' },
       { content: '最初の質問に戻る', nextId: 'init' },
     ],
-    question: '社会学部ですね。こちらのnoteをお読みください！',
+    question: '社会学部ですね。どうされますか？',
   },
   // ここまで履修相談
 
@@ -197,7 +213,7 @@ export const defaultDataset = {
   join: {
     answers: [
       { content: '参加した！', nextId: 'meeting' },
-      { content: 'まだ！', nextId: 'init' },
+      { content: 'まだ！', nextId: 'official_line' },
     ],
     question: '本当ですか！嬉しい！ちなみに、説明会には参加してくれました？？',
   },
@@ -209,12 +225,18 @@ export const defaultDataset = {
     question: `え！本当に！！♡♡\nチームミーティングの方はどうですか？？`,
   },
   form: {
-    answers: [{ content: '最初の質問に戻る', nextId: 'init' }],
-    question: `素晴らしい！！ぜひこちらのFormから入部申請をお願いします！\n${formUrl}`,
+    answers: [
+      { content: 'Formへ進む', nextId: `${formUrl}` },
+      { content: '最初の質問に戻る', nextId: 'init' },
+    ],
+    question: `素晴らしい！！ぜひ専用Formから入部申請をお願いします！`,
   },
   official_line: {
-    answers: [{ content: '最初の質問に戻る', nextId: 'init' }],
-    question: `わかりました！ありがとう！公式ラインの方で説明会/ミーテ参加のお問い合わせをお願いします！\n${lineUrl}`,
+    answers: [
+      { content: '公式LINEへ', nextId: `${lineUrl}` },
+      { content: '最初の質問に戻る', nextId: 'init' },
+    ],
+    question: `わかりました！ありがとう！公式LINEの方で説明会/ミーテ参加のお問い合わせをお願いします！`,
   },
   //ここまで入部申請
 }
