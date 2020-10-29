@@ -14,7 +14,7 @@ const AnswersList = ({ answers, select }: AnsweListProps) => {
         display: 'flex',
         flexFlow: 'column',
         justifyContent: 'flex-end',
-        height: '192px',
+        height: '234px',
       }}
     >
       {answers.map(({ content, nextId }: AnswerProps, index: number) => (

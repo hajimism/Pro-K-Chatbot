@@ -64,14 +64,17 @@ const App = () => {
     }
   }
 
+  // chat cycle
   const addChats = (chat: ChatProps) => {
     setChats((prevChats) => [...prevChats, chat])
   }
 
+  // display init choices
   React.useEffect(() => {
     displayNextQuestion(currentId, dataset[currentId])
   }, [])
 
+  // Auto scroll
   React.useEffect(() => {
     const scrollArea = document.getElementById('scroll-area')
     if (scrollArea) {

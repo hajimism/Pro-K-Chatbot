@@ -1,5 +1,6 @@
 const lineUrl = 'http://lin.ee/tfKv3EW'
 const formUrl = 'https://forms.gle/DRNAjj2rjZhJd3ok9'
+const twitterUrl = 'https://twitter.com/prok_shinkan'
 
 export const defaultDataset = {
   init: {
@@ -199,13 +200,12 @@ export const defaultDataset = {
         content: 'このページから問い合わせる',
         nextId: 'contact',
       },
-      {
-        content: '入部に関して詳しく知りたい',
-        nextId: 'join',
-      },
+      { content: '公式LINEへ', nextId: `${lineUrl}` },
+      { content: '公式Twitterへ', nextId: `${twitterUrl}` },
+
       { content: '最初の質問に戻る', nextId: 'init' },
     ],
-    question: '公式ラインやTwitterのDMまでお問い合わせください！',
+    question: '公式LINEやTwitterでご確認ください！！',
   },
   // ここまでイベント説明
 
