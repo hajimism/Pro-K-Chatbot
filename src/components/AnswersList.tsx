@@ -8,15 +8,7 @@ interface AnsweListProps {
 
 const AnswersList = ({ answers, select }: AnsweListProps) => {
   return (
-    <div
-      className="c-grid__answer"
-      style={{
-        display: 'flex',
-        flexFlow: 'column',
-        justifyContent: 'flex-end',
-        height: '234px',
-      }}
-    >
+    <div className="c-grid__answer">
       {answers.map(({ content, nextId }: AnswerProps, index: number) => (
         <Answer
           content={content}

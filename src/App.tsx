@@ -16,6 +16,7 @@ const App = () => {
   const [answers, setAnswers] = React.useState<AnswerProps[]>([])
   const [chats, setChats] = React.useState<ChatProps[]>([])
   const [currentId, setCurrentId] = React.useState<any>('init')
+  // eslint-disable-next-line
   const [dataset, setDataset] = React.useState<any>(db)
   const [open, setOpen] = React.useState(false)
 
@@ -65,13 +66,17 @@ const App = () => {
   }
 
   // chat cycle
-  const addChats = (chat: ChatProps) => {
-    setChats((prevChats) => [...prevChats, chat])
-  }
+  const addChats = React.useCallback(
+    (chat: ChatProps) => {
+      setChats((prevChats) => [...prevChats, chat])
+    },
+    [setChats]
+  )
 
   // display init choices
   React.useEffect(() => {
     displayNextQuestion(currentId, dataset[currentId])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Auto scroll

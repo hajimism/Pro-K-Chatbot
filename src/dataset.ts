@@ -145,10 +145,13 @@ export const defaultDataset = {
   },
   commerce: {
     answers: [
-      { content: '履修に関するnoteを読む', nextId: 'contact' },
+      {
+        content: '履修に関するnoteを読む',
+        nextId: 'https://note.com/yahhoh_digital/n/n5e4b1d415d0e',
+      },
       {
         content: '商学部のPro-Kerと連絡を取りたい!',
-        nextId: 'https://note.com/yahhoh_digital/n/n5e4b1d415d0e',
+        nextId: 'contact',
       },
       { content: '最初の質問に戻る', nextId: 'init' },
     ],
