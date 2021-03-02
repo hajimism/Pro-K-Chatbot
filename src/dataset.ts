@@ -46,9 +46,8 @@ export const defaultDataset = {
         nextId: 'https://note.com/yahhoh_digital/n/nbc03e708d8e3',
       },
       {
-        content: 'メンバーのことが知りたい！',
-        nextId:
-          'https://www.notion.so/prokers/dummy-0d17462ed52a47b992fb28d0f39a8d1c',
+        content: '商協noteを漁りたい！',
+        nextId: 'https://note.com/yahhoh_digital/m/m1f8ad06e086d',
       },
       { content: '前の質問に戻る', nextId: 'teams' },
       { content: '最初の質問に戻る', nextId: 'init' },
@@ -62,9 +61,8 @@ export const defaultDataset = {
         nextId: 'https://note.com/yahhoh_digital/n/n2c34f6027f2c',
       },
       {
-        content: 'メンバーのことが知りたい！',
-        nextId:
-          'https://www.notion.so/prokers/dummy-0d17462ed52a47b992fb28d0f39a8d1c',
+        content: 'まちかどnoteを漁りたい！',
+        nextId: 'https://note.com/yahhoh_digital/m/mbebd2fee0e2c',
       },
       { content: '前の質問に戻る', nextId: 'teams' },
       { content: '最初の質問に戻る', nextId: 'init' },
@@ -78,9 +76,8 @@ export const defaultDataset = {
         nextId: 'https://note.com/yahhoh_digital/n/na16c6c73d87a',
       },
       {
-        content: 'メンバーのことが知りたい！',
-        nextId:
-          'https://www.notion.so/prokers/dummy-0d17462ed52a47b992fb28d0f39a8d1c',
+        content: 'ここたのnoteを漁りたい！',
+        nextId: 'https://note.com/yahhoh_digital/m/md01a21fb733e',
       },
       { content: '前の質問に戻る', nextId: 'teams' },
       { content: '最初の質問に戻る', nextId: 'init' },
@@ -94,9 +91,8 @@ export const defaultDataset = {
         nextId: 'https://note.com/yahhoh_digital/n/n6afeeceb5d99',
       },
       {
-        content: 'メンバーのことが知りたい！',
-        nextId:
-          'https://www.notion.so/prokers/dummy-0d17462ed52a47b992fb28d0f39a8d1c',
+        content: 'とれたのnoteを漁りたい！',
+        nextId: 'https://note.com/yahhoh_digital/m/m4a4b583760ce',
       },
       { content: '前の質問に戻る', nextId: 'teams' },
       { content: '最初の質問に戻る', nextId: 'init' },
@@ -110,9 +106,8 @@ export const defaultDataset = {
         nextId: 'https://note.com/yahhoh_digital/n/n776fc44e4b1e',
       },
       {
-        content: 'メンバーのことが知りたい！',
-        nextId:
-          'https://www.notion.so/prokers/dummy-0d17462ed52a47b992fb28d0f39a8d1c',
+        content: 'ゆーからnoteを漁りたい！',
+        nextId: 'https://note.com/yahhoh_digital/m/m12f6006880b9',
       },
       { content: '前の質問に戻る', nextId: 'teams' },
       { content: '最初の質問に戻る', nextId: 'init' },

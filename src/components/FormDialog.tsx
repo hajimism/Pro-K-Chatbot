@@ -5,7 +5,6 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import TextInput from './TextInput'
-import WEBHOOKURL from '../webhook'
 
 interface FormDialogProps {
   open: boolean
@@ -35,28 +34,22 @@ const FormDialog = ({ open, handleClose }: FormDialogProps) => {
       return false
     } else {
       const payload = {
-        text:
-          ' @channel お問い合わせがありました\n' +
-          'お名前: ' +
-          name +
-          '\n' +
-          'メールアドレス: ' +
-          email +
-          '\n' +
-          '【問い合わせ内容】\n' +
-          description,
+        text: `@channel お問い合わせがありました\nお名前: ${name}\nメールアドレス: ${email}\n【問い合わせ内容】\n${description}`,
       }
-
-      fetch(WEBHOOKURL, {
+      fetch(process.env.REACT_APP_SLACK_WEBHOOK_URL!, {
         method: 'POST',
         body: JSON.stringify(payload),
-      }).then(() => {
-        alert('送信が完了しました。追ってご連絡いたします🙌')
-        setName('')
-        setEmail('')
-        setDescription('')
-        return handleClose()
       })
+        .then(() => alert('ご連絡ありがとうございます！返信をお待ち下さい！'))
+        .then(() => {
+          setName('')
+          setEmail('')
+          setDescription('')
+          handleClose()
+        })
+        .catch(function (error) {
+          console.log(error.message)
+        })
     }
   }
 
