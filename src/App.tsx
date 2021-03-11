@@ -6,6 +6,7 @@ import { ChatProps } from './components/Chat'
 import Chats from './components/Chats'
 import FormDialog from './components/FormDialog'
 import { defaultDataset as db } from './dataset'
+// import { Helmet } from 'react-helmet'
 
 interface DataSet {
   answers: AnswerProps[]
@@ -88,13 +89,26 @@ const App = () => {
   })
 
   return (
-    <section className="c-section">
-      <div className="c-box">
-        <Chats chats={chats} />
-        <AnswersList answers={answers} select={selectAnswer} />
-        <FormDialog open={open} handleClose={handleClose} />
-      </div>
-    </section>
+    <>
+      {/* <Helmet>
+        <meta property="og:image" content="./logo.png" />
+        <meta name="twitter:creator" content="@prok_shinkan" />
+        <meta name="twitter:title" content="Pro-K新歓チャットボット" />
+        <meta
+          name="twitter:description"
+          content="Pro-K新歓チャットボットです！お気軽に質問してください！"
+        />
+        <meta name="twitter:image" content="" />
+        <title>Pro-K新歓チャットボット</title>
+      </Helmet> */}
+      <section className="c-section">
+        <div className="c-box">
+          <Chats chats={chats} />
+          <AnswersList answers={answers} select={selectAnswer} />
+          <FormDialog open={open} handleClose={handleClose} />
+        </div>
+      </section>
+    </>
   )
 }
 
