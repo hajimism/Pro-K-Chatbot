@@ -1,5 +1,6 @@
 const lineUrl = 'http://lin.ee/tfKv3EW'
-const formUrl = 'https://forms.gle/DRNAjj2rjZhJd3ok9'
+const formUrl =
+  'https://docs.google.com/forms/d/1NLJ6fz6qcTNmc5fAA2hCNFHdA1tQbsqaMwRZ3NKX-aM/viewform?edit_requested=true'
 const twitterUrl = 'https://twitter.com/prok_shinkan'
 
 export const defaultDataset = {
