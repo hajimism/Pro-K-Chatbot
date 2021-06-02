@@ -1,4 +1,4 @@
-# [Pro-K Chatbot](https://chatbot-a57f3.web.app/)
+# [Pro-K Chatbot](https://pro-k-chatbot-hajimexxxnakagawa.vercel.app/)
 
 ## Problem
 - サークルの新歓で情報が氾濫していて、新入生はどの情報を参照すればいいかわからずに戸惑ってしまう
